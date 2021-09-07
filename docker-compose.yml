@@ -1,0 +1,19 @@
+version: "3.3"
+services:
+  neo4j:
+    image: neo4j:4.3.3-enterprise
+    restart: unless-stopped
+    container_name: sso_neo4j
+    ports:
+      - 7687:7687
+      - 7474:7474
+    volumes:
+      - ./neo4j/data:/data
+    environment:
+      - NEO4J_AUTH=neo4j/123
+      - NEO4J_ACCEPT_LICENSE_AGREEMENT=yes
+
+  redis:
+    image: redis:6.2.5-buster
+    restart: unless-stopped
+    container_name: redis_sso
