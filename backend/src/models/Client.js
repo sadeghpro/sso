@@ -1,4 +1,4 @@
-import session from "../dbUtils";
+import session from "../utils/db";
 import crypto from "crypto";
 
 export default class Client {
